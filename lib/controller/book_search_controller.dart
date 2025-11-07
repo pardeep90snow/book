@@ -59,7 +59,7 @@ class BookSearchController extends GetxController {
     loadAllBooks(); // first shimmer + data load
   }
 
-  /// 🔹 Fetch first page (reset state)
+  
   Future<void> loadAllBooks() async {
     const queryText = "fiction";
     _currentStartIndex = 0;
@@ -69,7 +69,7 @@ class BookSearchController extends GetxController {
     await _fetchPage(queryText, append: false);
   }
 
-  /// 🔹 Pagination: fetch next page
+  
   Future<void> loadMoreBooks() async {
     if (_isLoadingPage || !_hasMore) return;
     _isLoadingPage = true;
@@ -80,7 +80,7 @@ class BookSearchController extends GetxController {
     _isLoadingPage = false;
   }
 
-  /// 🔹 Fetch single page from API
+  
   Future<void> _fetchPage(String q, {bool append = false}) async {
     try {
       final uri = Uri.parse(
@@ -121,7 +121,6 @@ class BookSearchController extends GetxController {
     }
   }
 
-  /// 🔹 Local filtering for search
   void onQueryChanged(String value) {
     query.value = value;
     _debounce?.cancel();
